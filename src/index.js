@@ -17,6 +17,19 @@ const pca = new PublicClientApplication({
     // login.microsoft.com is what were authenticating against- the global azure instance. d06d8a30-1a42-4daf-8cae-0a642bcf73c7 is the tenant id
     redirectUri: "/",
   },
+  cache: {
+    // setting this to local storage instead of session storage to persist inbeween browser refreshes
+    cacheLocation: "localStorage",
+    storeAuthStateInCookie: false,
+  },
+  system: {
+    //   loggerOptions: {
+    //     loggerCallback: (level, message, containsPII) => {
+    //       console.log(message);
+    //     },
+    //     logLevel: "Info",
+    //   },
+  },
 });
 
 pca.addEventCallback((event) => {
